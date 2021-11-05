@@ -1,0 +1,7 @@
+POST http://localhost:3000/anagram
+Content-Type: application/json
+
+{
+    "text1":"hello",
+    "text2":"loelh"
+}
