@@ -1,0 +1,6 @@
+POST http://localhost:3000/palindrome
+Content-Type: application/json
+
+{
+    "string":"abba"
+}

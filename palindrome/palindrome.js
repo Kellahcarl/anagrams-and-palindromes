@@ -14,8 +14,35 @@ const Palindrome  = (str) => {
     // REVERSE SO THAT THE FIRST CHARACTER BECOMES LAST & VICE VERSA
     // JOIN CHANGES THE ARRAY INTO A STRING 
 
-    console.log(str==isPalindrome);
+    return (str==isPalindrome);
 }
-Palindrome("abba");
+// Palindrome("abba");
 
 //outputs true or false 
+const express = require('express')
+const app = express()
+const port = 3000
+
+app.use(express.json());
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.post("/palindrome", (req, res) => {
+    try {
+      const { string } = req.body;
+      if (!string || typeof string !== "string")
+        return res.status(400).send("You need to provide a string");
+      if (Palindrome(string)) {
+        return res.status(200).send(true);
+      }
+      return res.status(200).send(false);
+    } catch {
+      res.sendStatus(500);
+    }
+  });
+
+  app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`)
+  })
